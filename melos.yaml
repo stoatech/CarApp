@@ -1,0 +1,19 @@
+name: CarApp
+repository: https://github.com/stoatech/CarApp
+
+versioning:
+  mode: independent
+
+packages:
+  - packages/**
+
+dev_dependencies:
+  dart_code_metrics: ^4.4.0
+
+environment:
+  sdk: '>=2.17.0 <3.0.0'
+  flutter: '>=1.17.0 <3.0.0'
+
+command:
+  bootstrap:
+    usePubspecOverrides: true
