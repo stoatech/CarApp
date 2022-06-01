@@ -5,44 +5,39 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:carapp_flutter/counter/counter.dart';
+import 'package:carapp_flutter/carlist/bloc/car_list_bloc.dart';
 import 'package:carapp_flutter/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CounterPage extends StatelessWidget {
-  const CounterPage({super.key});
+class CarListPage extends StatelessWidget {
+  const CarListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => CounterCubit(),
-      child: const CounterView(),
+      create: (_) => CarListBloc(),
+      child: const CarListView(),
     );
   }
 }
 
-class CounterView extends StatelessWidget {
-  const CounterView({super.key});
+class CarListView extends StatelessWidget {
+  const CarListView({super.key});
 
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     return Scaffold(
       appBar: AppBar(title: Text(l10n.counterAppBarTitle)),
-      body: const Center(child: CounterText()),
+      body: const Center(child: CarListText()),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: () => context.read<CounterCubit>().increment(),
+            onPressed: () {},
             child: const Icon(Icons.add),
-          ),
-          const SizedBox(height: 8),
-          FloatingActionButton(
-            onPressed: () => context.read<CounterCubit>().decrement(),
-            child: const Icon(Icons.remove),
           ),
         ],
       ),
@@ -50,13 +45,13 @@ class CounterView extends StatelessWidget {
   }
 }
 
-class CounterText extends StatelessWidget {
-  const CounterText({super.key});
+class CarListText extends StatelessWidget {
+  const CarListText({super.key});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final count = context.select((CounterCubit cubit) => cubit.state);
-    return Text('$count', style: theme.textTheme.headline1);
+    final state = context.select((CarListBloc bloc) => bloc.state);
+    return Text('$state', style: theme.textTheme.headline1);
   }
 }

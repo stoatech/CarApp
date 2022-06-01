@@ -6,14 +6,14 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:carapp_flutter/app/app.dart';
-import 'package:carapp_flutter/counter/counter.dart';
+import 'package:carapp_flutter/carlist/view/car_list_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('App', () {
-    testWidgets('renders CounterPage', (tester) async {
+    testWidgets('renders CarListPage', (tester) async {
       await tester.pumpWidget(const App());
-      expect(find.byType(CounterPage), findsOneWidget);
+      expect(find.byType(CarListPage), findsOneWidget);
     });
   });
 }
