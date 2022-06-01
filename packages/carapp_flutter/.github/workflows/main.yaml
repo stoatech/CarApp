@@ -1,10 +1,17 @@
 name: carapp_flutter
 
-on: [pull_request, push]
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
 
 jobs:
   build:
-    uses: stoatech/CarApp/.github/workflows/flutter_package.yml
+    uses: ./.github/workflows/flutter_package.yml@main
     with:
       flutter_channel: stable
       flutter_version: 3.0.0
+      min_coverage: 100

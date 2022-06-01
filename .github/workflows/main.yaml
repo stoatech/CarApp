@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    uses: ./.github/workflows/flutter_package.yml
+    uses: ./.github/workflows/flutter_package.yml@main
     with:
       flutter_channel: stable
       flutter_version: 3.0.0
