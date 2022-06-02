@@ -1,0 +1,17 @@
+name: carapp_flutter
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: ./flutter_package.yml
+    with:
+      flutter_channel: stable
+      flutter_version: 3.0.0
+      min_coverage: 100
