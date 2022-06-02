@@ -6,10 +6,19 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:carapp_flutter/app/style/app_colors.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../../helpers/helpers.dart';
+
 void main() {
+  setupFirebaseAuthMocks();
+
+  setUpAll(() async {
+    await Firebase.initializeApp();
+  });
+
   group('AppColors', () {
     test('test material accent color', () {
       final colorAccent = AppColors.accent;

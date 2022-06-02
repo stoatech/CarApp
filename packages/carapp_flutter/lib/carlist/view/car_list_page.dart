@@ -7,6 +7,7 @@
 
 import 'package:carapp_flutter/carlist/bloc/car_list_bloc.dart';
 import 'package:carapp_flutter/l10n/l10n.dart';
+import 'package:cars_api_firestore/cars_api_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,7 +17,7 @@ class CarListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => CarListBloc(),
+      create: (_) => CarListBloc(carsApi: CarsApiFirestore(collection: 'cars')),
       child: const CarListView(),
     );
   }

@@ -8,7 +8,12 @@ environment:
 
 dependencies:
   bloc: ^8.0.3
+  cars_api:
+    path: ../cars_api
+  cars_api_firestore:
+    path: ../cars_api_firestore
   equatable: ^2.0.3
+  firebase_core: ^1.17.1
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1

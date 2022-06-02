@@ -7,6 +7,9 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/cars_api/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/packages/cars_api/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/packages/cars_api/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/cars_api_firestore/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/cars_api_firestore/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/cars_api_firestore/.pub" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />

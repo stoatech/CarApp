@@ -7,9 +7,18 @@
 
 import 'package:carapp_flutter/app/app.dart';
 import 'package:carapp_flutter/carlist/view/car_list_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-void main() {
+import '../../helpers/helpers.dart';
+
+void main() async {
+  setupFirebaseAuthMocks();
+
+  setUpAll(() async {
+    await Firebase.initializeApp();
+  });
+
   group('App', () {
     testWidgets('renders CarListPage', (tester) async {
       await tester.pumpWidget(const App());
