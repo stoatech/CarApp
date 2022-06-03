@@ -1,7 +1,22 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
+    "carListAppBarTitle": "CarApp",
+    "@carListAppBarTitle": {
+        "description": "Text shown in the AppBar of the CarList Page"
+    },
+    "brand": "Brand",
+    "model": "Model",
+    "color": "Color",
+    "carDetailsAppBarTitle": "Car details",
+    "carOwner": "Car owner",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "birthDate": "Date of Birth",
+    "ownerNotAvailable": "Owner is not available (invalid identifier)",
+    "addingCarAppBarTitle": "Add car",
+    "cannotBeEmpty": "cannot be empty",
+    "pickColor": "Pick a color",
+    "tapHere": "tap here",
+    "chooseProductionYear": "Choose production year",
+    "carAdded": "Car was added"
 }

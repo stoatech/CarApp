@@ -1,6 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:cars_api/cars_api.dart';
 import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'car_list_bloc.freezed.dart';
 
 part 'car_list_event.dart';
 
@@ -10,16 +13,32 @@ class CarListBloc extends Bloc<CarListEvent, CarListState> {
   CarListBloc({
     required CarsApi carsApi,
   })  : _carsApi = carsApi,
-        super(CarListInitial()) {
-    on<GetCars>(_getCars);
+        super(CarListState()) {
+    on<NewCarsData>(_newCarsData);
+
+    _listenCars();
   }
 
   final CarsApi _carsApi;
 
-  void _getCars(
-    GetCars event,
+  void _listenCars() {
+    _carsApi.getCars().listen((cars) {
+      add(
+        NewCarsData(
+          cars: cars,
+        ),
+      );
+    });
+  }
+
+  void _newCarsData(
+    NewCarsData event,
     Emitter<CarListState> emit,
   ) {
-    _carsApi.getCars().listen((cars) {});
+    emit(
+      state.copyWith(
+        cars: event.cars,
+      ),
+    );
   }
 }

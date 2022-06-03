@@ -1,0 +1,22 @@
+{
+    "@@locale": "pl",
+    "carListAppBarTitle": "CarApp",
+    "@carListAppBarTitle": {
+        "description": "Tekst widoczny na AppBarze ekranu CarList"
+    },
+    "brand": "Marka",
+    "model": "Model",
+    "color": "Kolor",
+    "carDetailsAppBarTitle": "Szczegóły samochodu",
+    "carOwner": "Właściciel auta",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
+    "birthDate": "Data urodzin",
+    "ownerNotAvailable": "Właściciel jest nie dostępny (niewprawidłowy identyfikator)",
+    "addingCarAppBarTitle": "Dodan auto",
+    "cannotBeEmpty": "nie może być puste",
+    "pickColor": "Wybierz kolor",
+    "tapHere": "kliknij tutaj",
+    "chooseProductionYear": "Wybierz rok produkcji",
+    "carAdded": "Auto zostało dodane"
+}

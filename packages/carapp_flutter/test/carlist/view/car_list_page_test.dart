@@ -10,7 +10,6 @@ import 'package:carapp_flutter/carlist/bloc/car_list_bloc.dart';
 import 'package:carapp_flutter/carlist/view/car_list_page.dart';
 import 'package:cars_api/cars_api.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -52,7 +51,7 @@ void main() async {
     });
 
     testWidgets('renders initial state', (tester) async {
-      final state = CarListInitial();
+      final state = CarListState();
       when(() => carListBloc.state).thenReturn(state);
       await tester.pumpApp(
         BlocProvider.value(
@@ -60,21 +59,7 @@ void main() async {
           child: const CarListView(),
         ),
       );
-      expect(find.text('$state'), findsOneWidget);
-    });
-
-    testWidgets('calls nothing when add button is tapped', (tester) async {
-      final state = CarListInitial();
-      when(() => carListBloc.state).thenReturn(state);
-      await tester.pumpApp(
-        BlocProvider.value(
-          value: carListBloc,
-          child: const CarListView(),
-        ),
-      );
-      await tester.tap(find.byIcon(Icons.add));
-
-      expect(find.text('$state'), findsOneWidget);
+      expect(find.byType(CarListView), findsOneWidget);
     });
   });
 }

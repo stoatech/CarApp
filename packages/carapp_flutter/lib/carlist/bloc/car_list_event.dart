@@ -7,6 +7,15 @@ abstract class CarListEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class GetCars extends CarListEvent {
-  const GetCars();
+class NewCarsData extends CarListEvent {
+  const NewCarsData({
+    required this.cars,
+  });
+
+  final List<Car> cars;
+
+  @override
+  List<Object?> get props => [
+        cars,
+      ];
 }

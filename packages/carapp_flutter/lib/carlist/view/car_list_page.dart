@@ -6,10 +6,13 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:carapp_flutter/carlist/bloc/car_list_bloc.dart';
+import 'package:carapp_flutter/carlist/widgets/car_list.dart';
 import 'package:carapp_flutter/l10n/l10n.dart';
 import 'package:cars_api_firestore/cars_api_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class CarListPage extends StatelessWidget {
   const CarListPage({super.key});
@@ -23,36 +26,40 @@ class CarListPage extends StatelessWidget {
   }
 }
 
+const deepCollectionEquality = DeepCollectionEquality();
+
 class CarListView extends StatelessWidget {
   const CarListView({super.key});
+
+  void _goToAddingCarPage(BuildContext context) {
+    context.go('/adding-car');
+  }
 
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.counterAppBarTitle)),
-      body: const Center(child: CarListText()),
+      appBar: AppBar(title: Text(l10n.carListAppBarTitle)),
+      body: BlocBuilder<CarListBloc, CarListState>(
+        buildWhen: (previous, current) =>
+            !deepCollectionEquality.equals(previous.cars, current.cars),
+        builder: (context, state) {
+          return CarList(
+            cars: state.cars,
+          );
+        },
+      ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: () {},
+            onPressed: () => _goToAddingCarPage(context),
             child: const Icon(Icons.add),
           ),
         ],
       ),
     );
-  }
-}
-
-class CarListText extends StatelessWidget {
-  const CarListText({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final state = context.select((CarListBloc bloc) => bloc.state);
-    return Text('$state', style: theme.textTheme.headline1);
   }
 }
