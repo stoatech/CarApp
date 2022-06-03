@@ -21,7 +21,7 @@ class CarsApiFirestore implements CarsApi {
   Stream<List<Car>> getCars() async* {
     yield* _collectionReference
         .snapshots()
-        .map((qS) => qS.docs.map((e) => e.data()).toList());
+        .map((qS) => qS.docs.map((e) => e.data().copyWith(id: e.id)).toList());
   }
 
   @override

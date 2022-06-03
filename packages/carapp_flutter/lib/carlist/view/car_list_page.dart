@@ -31,8 +31,8 @@ const deepCollectionEquality = DeepCollectionEquality();
 class CarListView extends StatelessWidget {
   const CarListView({super.key});
 
-  void _goToAddingCarPage(BuildContext context) {
-    context.go('/adding-car');
+  void _goToCarDetailsPage(BuildContext context) {
+    context.go('/car-details');
   }
 
   @override
@@ -55,7 +55,7 @@ class CarListView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: () => _goToAddingCarPage(context),
+            onPressed: () => _goToCarDetailsPage(context),
             child: const Icon(Icons.add),
           ),
         ],

@@ -18,5 +18,6 @@
     "pickColor": "Pick a color",
     "tapHere": "tap here",
     "chooseProductionYear": "Choose production year",
-    "carAdded": "Car was added"
+    "carAdded": "Car was added",
+    "carUpdated": "Car was updated"
 }
