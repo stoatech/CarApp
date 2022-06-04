@@ -49,7 +49,7 @@ jobs:
         run: dart pub get
 
       - name: ✨ Check Formatting
-        if: ${{ check_formatting == 'true' }}
+        if: ${{ inputs.check_formatting == 'true' }}
         run: dart format --set-exit-if-changed .
 
       - name: 🕵️ Analyze

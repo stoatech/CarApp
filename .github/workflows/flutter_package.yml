@@ -61,7 +61,7 @@ jobs:
           very_good --analytics false
           very_good packages get --recursive
       - name: ✨ Check Formatting
-        if: ${{ check_formatting == 'true' }}
+        if: ${{ inputs.check_formatting == 'true' }}
         run: flutter format --set-exit-if-changed lib test
 
       - name: 🕵️ Analyze
