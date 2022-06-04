@@ -106,46 +106,74 @@ class CarDetailsBloc extends Bloc<CarDetailsEvent, CarDetailsState> {
     SaveCarData event,
     Emitter<CarDetailsState> emit,
   ) async {
-    emit(
-      state.copyWith(
-        formzStatus: FormzStatus.submissionInProgress,
-      ),
-    );
+    _validateAllForms(emit);
 
-    final oldCar = state.car;
+    final formzStatus = state.formzStatus;
 
-    final brand = state.brandForm.value;
-    final model = state.modelForm.value;
-    final hexColor = state.color.toHex(
-      withAlpha: false,
-    );
-    final year = state.year?.toIso8601String();
+    if (formzStatus.isSubmissionInProgress) return;
 
-    if (oldCar != null) {
-      await _carsApi.updateCar(
-        car: oldCar.copyWith(
+    if (formzStatus.isValid) {
+      emit(
+        state.copyWith(
+          formzStatus: FormzStatus.submissionInProgress,
+        ),
+      );
+
+      final oldCar = state.car;
+
+      final brand = state.brandForm.value;
+      final model = state.modelForm.value;
+      final hexColor = state.color.toHex(
+        withAlpha: false,
+      );
+      final year = state.year?.toIso8601String();
+
+      if (oldCar != null) {
+        await _carsApi.updateCar(
+          car: oldCar.copyWith(
+            brand: brand,
+            model: model,
+            color: hexColor,
+            year: year,
+          ),
+        );
+      } else {
+        final newCar = Car(
           brand: brand,
           model: model,
           color: hexColor,
           year: year,
+        );
+
+        await _carsApi.addCar(
+          car: newCar,
+        );
+      }
+
+      emit(
+        state.copyWith(
+          formzStatus: FormzStatus.submissionSuccess,
         ),
       );
     } else {
-      final newCar = Car(
-        brand: brand,
-        model: model,
-        color: hexColor,
-        year: year,
-      );
-
-      await _carsApi.addCar(
-        car: newCar,
-      );
+      _validateAllForms(emit);
     }
+  }
+
+  void _validateAllForms(
+    Emitter<CarDetailsState> emit,
+  ) {
+    final brandForm = BrandForm.dirty(state.brandForm.value);
+    final modelForm = ModelForm.dirty(state.modelForm.value);
 
     emit(
       state.copyWith(
-        formzStatus: FormzStatus.submissionSuccess,
+        formzStatus: Formz.validate([
+          brandForm,
+          modelForm,
+        ]),
+        brandForm: brandForm,
+        modelForm: modelForm,
       ),
     );
   }
