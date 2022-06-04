@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: cars_api,cars_api_firestore
+dependency_overrides:
+  cars_api:
+    path: ../cars_api
+  cars_api_firestore:
+    path: ../cars_api_firestore
