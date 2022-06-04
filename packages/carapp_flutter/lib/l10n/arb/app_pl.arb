@@ -6,6 +6,7 @@
     },
     "brand": "Marka",
     "model": "Model",
+    "year": "Rok",
     "color": "Kolor",
     "carDetailsAppBarTitle": "Szczegóły samochodu",
     "carOwner": "Właściciel auta",

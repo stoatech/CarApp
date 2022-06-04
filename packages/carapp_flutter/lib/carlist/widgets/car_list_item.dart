@@ -33,6 +33,7 @@ class CarListItem extends StatelessWidget {
 
     final brand = car.brand ?? '';
     final model = car.model ?? '';
+    final year = DateTime.tryParse(car.year ?? '')?.year.toString() ?? '';
     final color = car.color ?? '';
 
     return GestureDetector(
@@ -76,6 +77,24 @@ class CarListItem extends StatelessWidget {
                   ),
                   Text(
                     model,
+                    style: textStyleBold,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Row(
+                children: [
+                  Text(
+                    '${l10n.year}:',
+                    style: textStyleBold,
+                  ),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  Text(
+                    year,
                     style: textStyleBold,
                   ),
                 ],

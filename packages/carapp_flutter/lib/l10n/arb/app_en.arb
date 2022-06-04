@@ -6,6 +6,7 @@
     },
     "brand": "Brand",
     "model": "Model",
+    "year": "Year",
     "color": "Color",
     "carDetailsAppBarTitle": "Car details",
     "carOwner": "Car owner",
