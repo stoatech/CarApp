@@ -48,7 +48,6 @@ jobs:
         run: dart format --set-exit-if-changed .
 
       - name: 🕵️ Analyze
-        uses: ./analysis_options.yaml
         run: dart analyze --fatal-infos --fatal-warnings lib
 
       - name: 🧪 Run Tests
