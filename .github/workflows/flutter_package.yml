@@ -60,6 +60,7 @@ jobs:
         run: flutter format --set-exit-if-changed lib test
 
       - name: 🕵️ Analyze
+        uses: ./analysis_options.yaml
         run: flutter analyze lib test
 
       - name: 🧪 Run Tests

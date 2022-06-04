@@ -16,14 +16,14 @@ jobs:
     uses: ./.github/workflows/flutter_package.yml
     with:
       flutter_channel: stable
-      flutter_version: 3.0.0
+      flutter_version: 3.0.1
       working_directory: packages/cars_api
 
   verify-carapp_flutter:
     uses: ./.github/workflows/flutter_package.yml
     with:
       flutter_channel: stable
-      flutter_version: 3.0.0
+      flutter_version: 3.0.1
       working_directory: packages/carapp_flutter
 
   build:
