@@ -27,7 +27,9 @@ class CarYear extends StatelessWidget {
               firstDate: DateTime(1900),
               lastDate: DateTime(now.year + 1),
               onChanged: (date) {
-                context.read<CarDetailsBloc>().add(ChangeYear(year: date));
+                context
+                    .read<CarDetailsBloc>()
+                    .add(ChangeYear(year: DateTime(date.year)));
 
                 Navigator.pop(context);
               },

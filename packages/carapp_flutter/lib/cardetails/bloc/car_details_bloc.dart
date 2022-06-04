@@ -27,7 +27,7 @@ class CarDetailsBloc extends Bloc<CarDetailsEvent, CarDetailsState> {
             modelForm: car != null
                 ? ModelForm.dirty(car.model ?? '')
                 : const ModelForm.pure(),
-            year: car != null ? DateTime.now() : null,
+            year: car != null ? DateTime.tryParse(car.year ?? '') : null,
             color: car != null
                 ? getColorFromHex(car.color ?? '')
                 : AppColors.whiteColor,
@@ -119,7 +119,7 @@ class CarDetailsBloc extends Bloc<CarDetailsEvent, CarDetailsState> {
     final hexColor = state.color.toHex(
       withAlpha: false,
     );
-    final year = state.year?.toUtc().toIso8601String();
+    final year = state.year?.toIso8601String();
 
     if (oldCar != null) {
       await _carsApi.updateCar(
