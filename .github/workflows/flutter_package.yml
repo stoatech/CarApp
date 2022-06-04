@@ -31,6 +31,10 @@ on:
         required: false
         type: boolean
         default: false
+      check_formatting:
+        required: false
+        type: boolean
+        default: true
 
 jobs:
   build:
@@ -57,6 +61,7 @@ jobs:
           very_good --analytics false
           very_good packages get --recursive
       - name: ✨ Check Formatting
+        if: ${{ check_formatting == 'true' }}
         run: flutter format --set-exit-if-changed lib test
 
       - name: 🕵️ Analyze

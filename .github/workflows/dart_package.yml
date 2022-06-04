@@ -23,6 +23,10 @@ on:
         required: false
         type: number
         default: 100
+      check_formatting:
+        required: false
+        type: boolean
+        default: true
 
 jobs:
   build:
@@ -45,6 +49,7 @@ jobs:
         run: dart pub get
 
       - name: ✨ Check Formatting
+        if: ${{ check_formatting == 'true' }}
         run: dart format --set-exit-if-changed .
 
       - name: 🕵️ Analyze
