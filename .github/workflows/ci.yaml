@@ -8,19 +8,19 @@ on:
 
 jobs:
   verify-cars_api:
-    uses: ./.github/workflows/dart_package.yml@v1
+    uses: ./.github/workflows/dart_package.yml
     with:
       working_directory: packages/cars_api
 
   verify-cars_api_firestore:
-    uses: ./.github/workflows/flutter_package.yml@v1
+    uses: ./.github/workflows/flutter_package.yml
     with:
       flutter_channel: stable
       flutter_version: 3.0.0
       working_directory: packages/cars_api
 
   verify-carapp_flutter:
-    uses: ./.github/workflows/flutter_package.yml@v1
+    uses: ./.github/workflows/flutter_package.yml
     with:
       flutter_channel: stable
       flutter_version: 3.0.0
