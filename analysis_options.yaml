@@ -15,10 +15,10 @@ analyzer:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
     - "**/*.chopper.dart"
-    - lib/main_development.dart
-    - lib/main_production.dart
-    - lib/main_staging.dart
-    - lib/firebase_options.dart
+    - "**/lib/main_development.dart"
+    - "**/lib/main_production.dart"
+    - "**/lib/main_staging.dart"
+    - "**lib/firebase_options.dart"
     - "**/localization_exceptions.dart"
 
 linter:
