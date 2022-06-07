@@ -15,6 +15,123 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+mixin _$NewCarsData {
+  List<Car> get cars => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $NewCarsDataCopyWith<NewCarsData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $NewCarsDataCopyWith<$Res> {
+  factory $NewCarsDataCopyWith(
+          NewCarsData value, $Res Function(NewCarsData) then) =
+      _$NewCarsDataCopyWithImpl<$Res>;
+  $Res call({List<Car> cars});
+}
+
+/// @nodoc
+class _$NewCarsDataCopyWithImpl<$Res> implements $NewCarsDataCopyWith<$Res> {
+  _$NewCarsDataCopyWithImpl(this._value, this._then);
+
+  final NewCarsData _value;
+  // ignore: unused_field
+  final $Res Function(NewCarsData) _then;
+
+  @override
+  $Res call({
+    Object? cars = freezed,
+  }) {
+    return _then(_value.copyWith(
+      cars: cars == freezed
+          ? _value.cars
+          : cars // ignore: cast_nullable_to_non_nullable
+              as List<Car>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_NewCarsDataCopyWith<$Res>
+    implements $NewCarsDataCopyWith<$Res> {
+  factory _$$_NewCarsDataCopyWith(
+          _$_NewCarsData value, $Res Function(_$_NewCarsData) then) =
+      __$$_NewCarsDataCopyWithImpl<$Res>;
+  @override
+  $Res call({List<Car> cars});
+}
+
+/// @nodoc
+class __$$_NewCarsDataCopyWithImpl<$Res> extends _$NewCarsDataCopyWithImpl<$Res>
+    implements _$$_NewCarsDataCopyWith<$Res> {
+  __$$_NewCarsDataCopyWithImpl(
+      _$_NewCarsData _value, $Res Function(_$_NewCarsData) _then)
+      : super(_value, (v) => _then(v as _$_NewCarsData));
+
+  @override
+  _$_NewCarsData get _value => super._value as _$_NewCarsData;
+
+  @override
+  $Res call({
+    Object? cars = freezed,
+  }) {
+    return _then(_$_NewCarsData(
+      cars: cars == freezed
+          ? _value._cars
+          : cars // ignore: cast_nullable_to_non_nullable
+              as List<Car>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_NewCarsData implements _NewCarsData {
+  _$_NewCarsData({required final List<Car> cars}) : _cars = cars;
+
+  final List<Car> _cars;
+  @override
+  List<Car> get cars {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_cars);
+  }
+
+  @override
+  String toString() {
+    return 'NewCarsData(cars: $cars)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NewCarsData &&
+            const DeepCollectionEquality().equals(other._cars, _cars));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_cars));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_NewCarsDataCopyWith<_$_NewCarsData> get copyWith =>
+      __$$_NewCarsDataCopyWithImpl<_$_NewCarsData>(this, _$identity);
+}
+
+abstract class _NewCarsData implements NewCarsData {
+  factory _NewCarsData({required final List<Car> cars}) = _$_NewCarsData;
+
+  @override
+  List<Car> get cars => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$_NewCarsDataCopyWith<_$_NewCarsData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CarListState {
   List<Car> get cars => throw _privateConstructorUsedError;
 

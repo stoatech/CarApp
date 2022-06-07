@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:cars_api/cars_api.dart';
-import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'car_list_bloc.freezed.dart';

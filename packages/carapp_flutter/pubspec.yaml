@@ -12,7 +12,6 @@ dependencies:
     path: ../cars_api
   cars_api_firestore:
     path: ../cars_api_firestore
-  equatable: ^2.0.3
   firebase_core: ^1.17.1
   flex_color_picker: ^2.5.0
   flutter:

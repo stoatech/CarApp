@@ -1,21 +1,12 @@
 part of 'car_list_bloc.dart';
 
-abstract class CarListEvent extends Equatable {
+abstract class CarListEvent {
   const CarListEvent();
-
-  @override
-  List<Object?> get props => [];
 }
 
-class NewCarsData extends CarListEvent {
-  const NewCarsData({
-    required this.cars,
-  });
-
-  final List<Car> cars;
-
-  @override
-  List<Object?> get props => [
-        cars,
-      ];
+@freezed
+class NewCarsData extends CarListEvent with _$NewCarsData {
+  factory NewCarsData({
+    required List<Car> cars,
+  }) = _NewCarsData;
 }
