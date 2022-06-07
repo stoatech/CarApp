@@ -12,6 +12,7 @@ jobs:
     with:
       working_directory: packages/cars_api
       check_formatting: false
+      exclude: '**/*.g.dart **/*.freezed.dart **/*.chopper.dart **/localization_exceptions.dart'
 
   verify-cars_api_firestore:
     uses: ./.github/workflows/flutter_package.yml
